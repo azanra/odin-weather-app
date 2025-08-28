@@ -1,7 +1,4 @@
-import WeatherAPI from "./pages/clients/WeatherAPI";
+import Location from "./pages/components/Location";
 import "./style.css";
 
-const unitGroup = "metric";
-const location = "tangerang";
-
-WeatherAPI.fetchData(location, unitGroup);
+Location.handleClick();
