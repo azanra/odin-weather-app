@@ -10,7 +10,7 @@ const WeatherAPI = (function () {
       );
       const result = await response.json();
       const { extractedCondition, daysCondition } = processData(result);
-      console.log(result, extractedCondition, daysCondition);
+      return { extractedCondition, daysCondition };
     } catch (error) {
       console.log(error);
     }
@@ -30,6 +30,7 @@ const WeatherAPI = (function () {
         temp: item.temp,
         feelslike: item.feelslike,
         datetime: item.datetime,
+        conditions: item.conditions,
       };
     });
 

@@ -11,6 +11,7 @@ const weatherUtils = (function () {
       windspeed,
       cloudcover,
       visibility,
+      conditions,
     } = condition;
 
     const extractedCondition = {
@@ -25,6 +26,7 @@ const weatherUtils = (function () {
       windspeed,
       cloudcover,
       visibility,
+      conditions,
     };
 
     return extractedCondition;
