@@ -36,7 +36,27 @@ const weatherUtils = (function () {
     return text[0].toUpperCase() + text.slice(1);
   };
 
-  return { extractCondition, capitalize };
+  const epochToDate = (epoch) => {
+    const date = new Date(0);
+    date.setUTCSeconds(epoch);
+    return date;
+  };
+
+  const epochToDays = (epoch) => {
+    const date = epochToDate(epoch);
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    return days[date.getDay()];
+  };
+
+  return { extractCondition, capitalize, epochToDays };
 })();
 
 export default weatherUtils;
