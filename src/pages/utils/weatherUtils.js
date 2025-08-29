@@ -30,7 +30,13 @@ const weatherUtils = (function () {
     return extractedCondition;
   };
 
-  return { extractCondition };
+  const capitalize = (str) => {
+    if (!str) return;
+    const text = str.toLowerCase();
+    return text[0].toUpperCase() + text.slice(1);
+  };
+
+  return { extractCondition, capitalize };
 })();
 
 export default weatherUtils;
