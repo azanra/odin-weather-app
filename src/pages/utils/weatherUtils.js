@@ -56,7 +56,15 @@ const weatherUtils = (function () {
     return days[date.getDay()];
   };
 
-  return { extractCondition, capitalize, epochToDays };
+  const getMetric = (metric) => {
+    if (metric === "us") {
+      return "f";
+    } else {
+      return "c";
+    }
+  };
+
+  return { extractCondition, capitalize, epochToDays, getMetric };
 })();
 
 export default weatherUtils;
