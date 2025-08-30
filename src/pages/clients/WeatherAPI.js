@@ -29,7 +29,7 @@ const WeatherAPI = (function () {
         icon: item.icon,
         temp: item.temp,
         feelslike: item.feelslike,
-        datetime: item.datetime,
+        datetimeEpoch: item.datetimeEpoch,
         conditions: item.conditions,
       };
     });
