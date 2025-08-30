@@ -10,6 +10,11 @@ const Location = (function () {
   const date = document.querySelector(".date");
   const tempNum = document.querySelector(".temp");
   const detailTemp = document.querySelector(".detailTemp");
+  const cloudCoverText = document.querySelector(".cloudCover");
+  const humidityText = document.querySelector(".humidity");
+  const uvIndexText = document.querySelector(".uvIndex");
+  const visibilityText = document.querySelector(".visibility");
+  const windSpeedText = document.querySelector(".windSpeed");
 
   const handleClick = () => {
     weatherForm.addEventListener("submit", async (e) => {
@@ -59,6 +64,12 @@ const Location = (function () {
     tempNum.textContent = `${temp}°${metric}`;
 
     detailTemp.textContent = `${temp}°${metric} / ${feelslike}°${metric} • ${conditions}`;
+
+    cloudCoverText.textContent = `${cloudcover}%`;
+    humidityText.textContent = `${humidity}%`;
+    uvIndexText.textContent = uvindex;
+    visibilityText.textContent = `${visibility} km`;
+    windSpeedText.textContent = `${windspeed} km/h`;
   };
 
   return { handleClick };
