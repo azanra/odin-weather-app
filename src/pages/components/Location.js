@@ -15,6 +15,7 @@ const Location = (function () {
   const uvIndexText = document.querySelector(".uvIndex");
   const visibilityText = document.querySelector(".visibility");
   const windSpeedText = document.querySelector(".windSpeed");
+  const weatherIcon = document.querySelector("#weatherIcon");
 
   const handleClick = () => {
     weatherForm.addEventListener("submit", async (e) => {
@@ -39,7 +40,7 @@ const Location = (function () {
     }
   };
 
-  const updateInfoView = (condition) => {
+  const updateInfoView = (currentCondition) => {
     const {
       address,
       datetime,
@@ -53,7 +54,7 @@ const Location = (function () {
       cloudcover,
       visibility,
       conditions,
-    } = condition;
+    } = currentCondition;
 
     location.textContent = weatherUtils.capitalize(address);
     time.textContent = datetime.slice(0, 5);
@@ -70,6 +71,15 @@ const Location = (function () {
     uvIndexText.textContent = uvindex;
     visibilityText.textContent = `${visibility} km`;
     windSpeedText.textContent = `${windspeed} km/h`;
+
+    weatherUtils
+      .getWeatherIcon(icon)
+      .then((svgIcon) => {
+        weatherIcon.src = svgIcon.default;
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
   };
 
   return { handleClick };

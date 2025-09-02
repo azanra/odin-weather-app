@@ -66,7 +66,18 @@ const weatherUtils = (function () {
     }
   };
 
-  return { extractCondition, capitalize, epochToDays, getMetric };
+  const getWeatherIcon = async (icon) => {
+    const svgIcon = await import(`../../asset/weather-icon/${icon}.svg`);
+    return svgIcon;
+  };
+
+  return {
+    extractCondition,
+    capitalize,
+    epochToDays,
+    getMetric,
+    getWeatherIcon,
+  };
 })();
 
 export default weatherUtils;
