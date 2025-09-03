@@ -1,0 +1,38 @@
+body {
+  height: 100vh;
+}
+
+.mainInfo,
+.detailInfo {
+  width: 40%;
+}
+
+.container {
+  height: 100%;
+}
+
+.container,
+.details,
+.detailsIcon,
+.forecastContainer,
+.tempContainer,
+.mainInfoContainer,
+.locationTimeContainer {
+  display: flex;
+}
+
+.container {
+  justify-content: center;
+}
+
+.container {
+  align-items: center;
+}
+
+.weatherIcon {
+  height: 60px;
+}
+
+#mainWeatherIcon {
+  height: 120px;
+}
