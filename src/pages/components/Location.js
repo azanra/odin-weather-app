@@ -16,7 +16,7 @@ const Location = (function () {
   const uvIndexText = document.querySelector(".uvIndex");
   const visibilityText = document.querySelector(".visibility");
   const windSpeedText = document.querySelector(".windSpeed");
-  const weatherIcon = document.querySelector("#weatherIcon");
+  const weatherIcon = document.querySelector("#mainWeatherIcon");
   const forecastContainer = document.querySelector(".forecastContainer");
 
   const handleClick = () => {
