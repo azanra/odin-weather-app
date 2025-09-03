@@ -1,5 +1,6 @@
 import WeatherAPI from "../clients/WeatherAPI";
 import weatherUtils from "../utils/weatherUtils";
+import Forecast from "./Forecast";
 
 const Location = (function () {
   const locationInput = document.querySelector("#locationInput");
@@ -16,6 +17,7 @@ const Location = (function () {
   const visibilityText = document.querySelector(".visibility");
   const windSpeedText = document.querySelector(".windSpeed");
   const weatherIcon = document.querySelector("#weatherIcon");
+  const forecastContainer = document.querySelector(".forecastContainer");
 
   const handleClick = () => {
     weatherForm.addEventListener("submit", async (e) => {
@@ -29,6 +31,7 @@ const Location = (function () {
       );
       console.log(extractedCondition, daysCondition);
       updateInfoView(extractedCondition);
+      renderForecast(daysCondition);
     });
   };
 
@@ -80,6 +83,13 @@ const Location = (function () {
       .catch((error) => {
         throw new Error(error);
       });
+  };
+
+  const renderForecast = (daysCondition) => {
+    daysCondition.forEach((day) => {
+      const forecast = Forecast.renderContainer(day);
+      forecastContainer.appendChild(forecast);
+    });
   };
 
   return { handleClick };
