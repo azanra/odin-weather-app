@@ -29,7 +29,8 @@ body {
   align-items: center;
 }
 
-.weatherIcon {
+.weatherIcon,
+#detailImg {
   height: 60px;
 }
 
