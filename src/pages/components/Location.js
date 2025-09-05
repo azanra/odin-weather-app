@@ -22,6 +22,7 @@ const Location = (function () {
   const handleClick = () => {
     weatherForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      forecastContainer.replaceChildren();
       const location = locationInput.value;
       const unitGroup = checkChosenMetric();
       console.log(location, unitGroup);
