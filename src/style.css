@@ -2,13 +2,20 @@ body {
   height: 100vh;
 }
 
+h1,
+p {
+  margin: 0;
+}
+
 .mainInfo,
 .detailInfo {
-  width: 35%;
+  width: 40%;
+  height: 65%;
 }
 
 .container {
   height: 100%;
+  gap: 35px;
 }
 
 .container,
@@ -19,7 +26,8 @@ body {
 .mainInfoContainer,
 .locationTimeContainer,
 .switchContainer,
-#weatherForm {
+#weatherForm,
+.infoContainer {
   display: flex;
 }
 
@@ -32,8 +40,37 @@ body {
   align-items: center;
 }
 
-.switchContainer {
+.searchContainer {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.infoContainer {
+  padding: 30px;
+  flex-direction: column;
+  height: 75%;
+}
+
+.temp {
+  margin-bottom: 5px;
+}
+
+.locationTimeContainer {
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.dateContainer {
+  flex: 1;
+}
+
+.switchContainer,
+.mainInfoContainer {
   gap: 10px;
+}
+
+.mainInfoContainer {
+  gap: 30px;
 }
 
 .weatherIcon,
@@ -98,4 +135,15 @@ body {
 
 .slider::before {
   border-radius: 50%;
+}
+
+#locationInput {
+  flex: 1;
+  margin-left: 10px;
+}
+
+#locationInput,
+#searchBtn {
+  border-radius: 5px;
+  border: 1px solid grey;
 }
