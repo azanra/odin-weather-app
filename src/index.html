@@ -10,12 +10,14 @@
       <div class="mainInfo">
         <div class="searchContainer">
           <form id="weatherForm">
-            <label for="">
+            <div class="switchContainer">
               C
-              <input type="checkbox" name="metric" id="metricInput" />
-              <span></span>
+              <label class="switch">
+                <input type="checkbox" name="metric" id="metricInput" />
+                <span class="slider"></span>
+              </label>
               F
-            </label>
+            </div>
             <input type="text" name="location" id="locationInput" required />
             <button type="submit">Search</button>
           </form>
