@@ -10,7 +10,7 @@ p {
 .mainInfo,
 .detailInfo {
   width: 40%;
-  height: 65%;
+  height: 70%;
 }
 
 .container {
@@ -27,8 +27,13 @@ p {
 .locationTimeContainer,
 .switchContainer,
 #weatherForm,
-.infoContainer {
+.infoContainer,
+.forecast {
   display: flex;
+}
+
+.forecast {
+  flex-direction: column;
 }
 
 .container {
@@ -36,7 +41,9 @@ p {
 }
 
 .container,
-.switchContainer {
+.switchContainer,
+.details,
+.detailsIcon {
   align-items: center;
 }
 
@@ -55,22 +62,35 @@ p {
   margin-bottom: 5px;
 }
 
-.locationTimeContainer {
+.locationTimeContainer,
+.mainInfoContainer {
   justify-content: space-between;
+}
+
+.tempContainer {
+  justify-content: space-around;
+}
+
+.condition {
+  margin-bottom: 15px;
+}
+
+.locationTimeContainer {
   margin-bottom: 10px;
 }
 
-.dateContainer {
+.days,
+.weatherIcon {
+  margin-bottom: 30px;
+}
+
+.dateContainer,
+.detailsIcon {
   flex: 1;
 }
 
-.switchContainer,
-.mainInfoContainer {
+.switchContainer {
   gap: 10px;
-}
-
-.mainInfoContainer {
-  gap: 30px;
 }
 
 .weatherIcon,
@@ -146,4 +166,25 @@ p {
 #searchBtn {
   border-radius: 5px;
   border: 1px solid grey;
+}
+
+.todayDetails {
+  padding: 10px;
+}
+
+.detailsIcon {
+  gap: 10px;
+}
+
+.todayDetails > h1,
+.forecast > h1 {
+  margin-bottom: 15px;
+}
+
+.forecastContainer {
+  gap: 30px;
+}
+
+.days {
+  text-align: center;
 }
