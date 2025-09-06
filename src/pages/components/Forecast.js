@@ -1,5 +1,6 @@
 import elementUtils from "../utils/elementUtils";
 import weatherUtils from "../utils/weatherUtils";
+import Location from "./Location";
 
 const forecastAttr = {
   elementType: "div",
@@ -88,10 +89,11 @@ const Forecast = (function () {
   };
 
   const renderTemperature = (temp, feelslike) => {
+    const selectedMetric = Location.getMetric();
     const tempContainer = elementUtils.render(tempContainerAttr);
-    tempAttr.textContent = temp;
+    tempAttr.textContent = `${temp}°${selectedMetric}`;
     const tempElement = elementUtils.render(tempAttr);
-    feelslikeAttr.textContent = feelslike;
+    feelslikeAttr.textContent = `${feelslike}°${selectedMetric}`;
     const feelsLikeElement = elementUtils.render(feelslikeAttr);
     tempContainer.appendChild(tempElement);
     tempContainer.appendChild(feelsLikeElement);

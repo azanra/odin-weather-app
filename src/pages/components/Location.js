@@ -44,6 +44,15 @@ const Location = (function () {
     }
   };
 
+  const getMetric = () => {
+    const currentMetric = checkChosenMetric();
+    if (currentMetric === "us") {
+      return "f";
+    } else {
+      return "c";
+    }
+  };
+
   const updateInfoView = (currentCondition) => {
     const {
       address,
@@ -93,7 +102,7 @@ const Location = (function () {
     });
   };
 
-  return { handleClick };
+  return { handleClick, getMetric };
 })();
 
 export default Location;
