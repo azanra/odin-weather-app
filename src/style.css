@@ -34,6 +34,13 @@ p {
 
 .forecast {
   flex-direction: column;
+  flex: 1;
+}
+
+.condition {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .container {
