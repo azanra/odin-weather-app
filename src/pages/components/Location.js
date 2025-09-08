@@ -18,22 +18,46 @@ const Location = (function () {
   const windSpeedText = document.querySelector(".windSpeed");
   const weatherIcon = document.querySelector("#mainWeatherIcon");
   const forecastContainer = document.querySelector(".forecastContainer");
+  const infoContainer = document.querySelector(".infoContainer");
+  const detailInfo = document.querySelector(".detailInfo");
+  const stateStatus = document.querySelector(".stateStatus");
 
   const handleClick = () => {
     weatherForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      forecastContainer.replaceChildren();
-      const location = locationInput.value;
-      const unitGroup = checkChosenMetric();
-      console.log(location, unitGroup);
-      const { extractedCondition, daysCondition } = await WeatherAPI.fetchData(
-        location,
-        unitGroup,
-      );
-      console.log(extractedCondition, daysCondition);
-      updateInfoView(extractedCondition);
-      renderForecast(daysCondition);
+      try {
+        e.preventDefault();
+        setLoadingState();
+        forecastContainer.replaceChildren();
+        const location = locationInput.value;
+        const unitGroup = checkChosenMetric();
+        console.log(location, unitGroup);
+        const { extractedCondition, daysCondition } =
+          await WeatherAPI.fetchData(location, unitGroup);
+        console.log(extractedCondition, daysCondition);
+        setFinishedState();
+        updateInfoView(extractedCondition);
+        renderForecast(daysCondition);
+      } catch (error) {
+        console.log(error);
+        setErrorState();
+      }
     });
+  };
+
+  const setLoadingState = () => {
+    infoContainer.style.opacity = "0";
+    detailInfo.style.opacity = "0";
+    stateStatus.textContent = "Fetching data...";
+  };
+
+  const setFinishedState = () => {
+    infoContainer.style.opacity = "1";
+    detailInfo.style.opacity = "1";
+    stateStatus.textContent = "";
+  };
+
+  const setErrorState = () => {
+    stateStatus.textContent = `Location doesn't exist!`;
   };
 
   const checkChosenMetric = () => {
@@ -102,7 +126,7 @@ const Location = (function () {
     });
   };
 
-  return { handleClick, getMetric };
+  return { handleClick, getMetric, setErrorState };
 })();
 
 export default Location;
