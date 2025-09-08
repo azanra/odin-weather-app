@@ -95,7 +95,7 @@ const Location = (function () {
 
     location.textContent = weatherUtils.capitalize(address);
     time.textContent = datetime.slice(0, 5);
-    date.textContent = weatherUtils.epochToDays(datetimeEpoch);
+    date.textContent = weatherUtils.getFullDate(datetimeEpoch);
 
     const unitGroup = checkChosenMetric();
     const metric = weatherUtils.getMetric(unitGroup);

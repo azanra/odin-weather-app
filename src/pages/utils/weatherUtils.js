@@ -58,6 +58,27 @@ const weatherUtils = (function () {
     return days[date.getDay()];
   };
 
+  const getFullDate = (epoch) => {
+    const currentDate = epochToDate(epoch);
+    const currentDays = epochToDays(epoch);
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const fullDate = `${currentDays}, ${currentDate.getDate()} ${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+    return fullDate;
+  };
+
   const getMetric = (metric) => {
     if (metric === "us") {
       return "f";
@@ -75,6 +96,7 @@ const weatherUtils = (function () {
     extractCondition,
     capitalize,
     epochToDays,
+    getFullDate,
     getMetric,
     getWeatherIcon,
   };
