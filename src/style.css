@@ -2,11 +2,32 @@
   --system-ui:
     system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --main-bg: oklch(21% 0.034 264.665);
+  --second-bg: oklch(27.8% 0.033 256.848);
+  --btn-bg: oklch(51.1% 0.096 186.391);
 }
 
 body {
   height: 100vh;
   font-family: var(--system-ui);
+  background-color: var(--main-bg);
+  color: white;
+}
+
+.infoContainer,
+.todayDetails,
+.forecast {
+  background-color: var(--second-bg);
+  border-radius: 10px;
+}
+
+.todayDetails,
+.forecast {
+  padding: 30px;
+}
+
+.details:not(:last-child) {
+  border-bottom: 1px solid white;
 }
 
 .detailInfo,
@@ -21,8 +42,8 @@ p {
 
 .mainInfo,
 .detailInfo {
-  width: 40%;
-  height: 70%;
+  width: 45%;
+  height: 90%;
 }
 
 .container {
@@ -40,12 +61,16 @@ p {
 .switchContainer,
 #weatherForm,
 .infoContainer,
-.forecast {
+.forecast,
+.weatherIconContainer {
   display: flex;
 }
 
 .forecast {
   flex-direction: column;
+}
+
+.forecastItems {
   flex: 1;
 }
 
@@ -53,16 +78,19 @@ p {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  width: 125px;
 }
 
-.container {
+.container,
+.weatherIconContainer {
   justify-content: center;
 }
 
 .container,
 .switchContainer,
 .details,
-.detailsIcon {
+.detailsIcon,
+.weatherIconContainer {
   align-items: center;
 }
 
@@ -112,8 +140,8 @@ p {
   gap: 10px;
 }
 
-.weatherIcon,
-#detailImg {
+#detailImg,
+.weatherIcon {
   height: 60px;
 }
 
@@ -185,10 +213,20 @@ p {
 #searchBtn {
   border-radius: 5px;
   border: 1px solid grey;
+  border: none;
 }
 
 #searchBtn {
   cursor: pointer;
+  background-color: var(--btn-bg);
+  color: white;
+  font-weight: bold;
+  padding: 0px 15px;
+  margin-left: 5px;
+}
+
+#searchBtn:hover {
+  opacity: 0.9;
 }
 
 #locationInput {
@@ -196,7 +234,7 @@ p {
 }
 
 .todayDetails {
-  padding: 10px;
+  margin-bottom: 20px;
 }
 
 .detailsIcon {

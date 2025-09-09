@@ -5,7 +5,7 @@ import Location from "./Location";
 const forecastAttr = {
   elementType: "div",
   elementAttr: {
-    class: "forecast",
+    class: "forecastItems",
   },
 };
 
@@ -51,6 +51,13 @@ const feelslikeAttr = {
   },
 };
 
+const weatherIconContainerAttr = {
+  elementType: "div",
+  elementAttr: {
+    class: "weatherIconContainer",
+  },
+};
+
 const Forecast = (function () {
   const renderContainer = ({
     icon,
@@ -75,11 +82,13 @@ const Forecast = (function () {
   };
 
   const renderIcon = (icon) => {
+    const weatherIconContainer = elementUtils.render(weatherIconContainerAttr);
     const weatherIcon = elementUtils.render(iconAttr);
     weatherUtils.getWeatherIcon(icon).then((svgIcon) => {
       weatherIcon.src = svgIcon.default;
     });
-    return weatherIcon;
+    weatherIconContainer.appendChild(weatherIcon);
+    return weatherIconContainer;
   };
 
   const renderCondition = (conditions) => {
